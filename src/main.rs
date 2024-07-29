@@ -55,7 +55,7 @@ fn main() {
             write_expenses_to_file(&json_path, &data).expect("Unable to write to file");
         },
         Cli::Delete { id } => {
-            let mut data = read_expenses_from_file("expenses.json");
+            let mut data = read_expenses_from_file(&json_path);
             data.retain(|expense| expense.id != id);
             write_expenses_to_file(&json_path, &data).expect("Unable to write to file");
         },
